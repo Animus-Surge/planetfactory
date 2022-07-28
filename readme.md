@@ -6,8 +6,8 @@ A factory game where you make planets
 
 ## Global TODO list
 
-[ ] Graphics engine
-[ ] State machine
-[ ] Planet recipes
-[ ] Factory machines
-[ ] 
+- [ ] Graphics engine
+- [ ] State machine
+- [ ] Planet recipes
+- [ ] Factory machines
+- [ ] Textures
