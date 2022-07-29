@@ -8,8 +8,11 @@ public class Tile {
     public Building building;
     public Resource resource;
 
+    //Global update callback method
     public void update() {
         
+        
+
     }
 
 }

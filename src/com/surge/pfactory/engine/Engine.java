@@ -45,10 +45,16 @@ public class Engine implements Runnable {
         public void paintComponent(Graphics g) {
             g.setColor(Color.DARK_GRAY);
             g.fillRect(0, 0, size.width, size.height);
+
+            g.setColor(Color.LIGHT_GRAY);
+            for(int x = 0; x < size.width; x += 16) {
+                g.drawLine(x, 0, x, size.height);
+            }
         }
 
     }
 
+    //Render thread
     @Override
     public void run() {
         //TODO
