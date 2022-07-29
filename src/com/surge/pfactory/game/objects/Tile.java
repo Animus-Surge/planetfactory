@@ -8,10 +8,8 @@ public class Tile {
     public Building building;
     public Resource resource;
 
-    
-
     public void update() {
-
+        
     }
 
 }
