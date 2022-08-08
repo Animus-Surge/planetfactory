@@ -1,41 +1,49 @@
 package com.surge.pfactory.game.objects;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
-import java.awt.Graphics;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Point;
 
+import com.surge.pfactory.engine.components.Tile;
+
+/**
+ * Defines a basic building with no functionality
+ * 
+ */
 public abstract class Building {
 
-    private class BuildingTimer extends TimerTask {
-
-        @Override
-        public void run() {
-            recipeComplete = true;
-        }
-        
-    }
+    //TODO: building rotation
 
     public final String name;
+    public Tile parent;
 
-    public Timer buildTimeTimer;
-    public boolean recipeComplete = false;
-    private final BuildingTimer event;
+    public Point originTile = new Point(0, 0); //Defines where the center tile is for the building. Defaults to (0, 0)
+
+    public int sizeTilesX, sizeTilesY;
 
     public Building(String name) {
         this.name = name;
-        this.event = new BuildingTimer();
+        sizeTilesX = 1;
+        sizeTilesY = 1;
     }
 
-    public void setBuildTime(long millis) {
-        buildTimeTimer.cancel();
-        buildTimeTimer = new Timer();
-        buildTimeTimer.scheduleAtFixedRate(event, 0, millis);
+    public void setSize(int tx, int ty) {
+        sizeTilesX = tx;
+        sizeTilesY = ty;
+    }
+
+    public void setParent(Tile parent) {
+        this.parent = parent;
     }
 
     public void render(Graphics g) {
-        g.setColor(Color.GRAY);
+        g.setColor(Color.GREEN);
+        //First find the position of the building
+
+        int dpx = parent.globalPosition.x + 3;
+        int dpy = parent.globalPosition.y + 3;
+
+        g.fillRect(dpx, dpy, 29, 29);
     }
 
     public abstract void update();

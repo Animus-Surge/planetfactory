@@ -3,7 +3,7 @@
 # PlanetFactory Build System for Mac/Linux
 # Rev 1.0
 
-echo $1
+type=$1
 
 ROOTDIR=$(pwd)
 
@@ -21,7 +21,9 @@ then
     exit 1
 fi
 
-if test -z $1
+echo $type
+
+if test -z $type
 then
     # Assuming basic debug build
     set targ = build
